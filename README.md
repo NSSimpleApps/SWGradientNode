@@ -14,7 +14,7 @@ This class is suitable for `iOS` and `OSX`.
 Usage:
 
 ```objc
-@implementation YourGradientScene
+@implementation SmoothGradientScene
 
 - (void)didMoveToView:(SKView *)view {
     [super didMoveToView:view];
