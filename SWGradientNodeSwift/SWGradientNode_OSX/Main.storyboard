@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="DiC-ij-TB2">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
+    </dependencies>
+    <scenes>
+        <!--Window Controller-->
+        <scene sceneID="q8R-vG-eP6">
+            <objects>
+                <windowController id="DiC-ij-TB2" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="0Fa-LO-IeW">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="229" y="240" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1600" height="877"/>
+                    </window>
+                    <connections>
+                        <segue destination="cmD-OH-3f7" kind="relationship" relationship="window.shadowedContentViewController" id="ap3-Bg-tdV"/>
+                    </connections>
+                </windowController>
+                <customObject id="4s6-1d-AP2" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="115" y="394"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Sie-hW-X0o">
+            <objects>
+                <viewController id="cmD-OH-3f7" customClass="OSXViewController" customModule="SWGradientSceneSwift_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Ban-CA-IGr" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <gestureRecognizers>
+                            <panGestureRecognizer delaysPrimaryMouseButtonEvents="YES" id="UAc-dh-lMZ">
+                                <connections>
+                                    <action selector="handlePanGesture:" target="cmD-OH-3f7" id="dPD-Qc-AA3"/>
+                                </connections>
+                            </panGestureRecognizer>
+                        </gestureRecognizers>
+                    </view>
+                </viewController>
+                <customObject id="fqY-Ho-xWr" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="822" y="369"/>
+        </scene>
+    </scenes>
+</document>
