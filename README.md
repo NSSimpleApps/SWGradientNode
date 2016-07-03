@@ -63,3 +63,4 @@ The first color of the gradient starts at initial angle in radians between 0 and
 All colors are located in counter-clockwise order.
 Default is 0.
 
+![Alt text](https://github.com/NSSimpleApps/SWGradientNode/blob/master/SWGradientNode.gif)
