@@ -14,16 +14,15 @@ class SmoothGradientScene: SKScene {
         
         super.didMoveToView(view)
         
-        //self.backgroundColor = SKColor.whiteColor()
+        self.backgroundColor = SKColor.whiteColor()
         
         let colors =
-            [SKColor.redColor(),
-             SKColor.greenColor(),
-             SKColor.blueColor(),
-             SKColor.yellowColor()
+            [SKColor(iRed: 247, iGreen: 24, iBlue: 34),
+             SKColor(iRed: 65, iGreen: 185, iBlue: 86),
+             SKColor(iRed: 62, iGreen: 44, iBlue: 222)
         ]
         
-        let locations: [Float]? = [0.15, 0.5]//[0.15, 0.5, 0.9]
+        let locations: [Float]? = nil//[0.15, 0.5, 0.9]
         
         let gradientNode = SWGradientNode(colors: colors, locations: locations, bounds: view.bounds, gradientType: .Smooth)
         self.addChild(gradientNode)

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B51E64971D28EDF200EB94CE /* SmoothGradientScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E64961D28EDF200EB94CE /* SmoothGradientScene.swift */; };
 		B51E64991D28EE0900EB94CE /* StepGradientScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E64981D28EE0900EB94CE /* StepGradientScene.swift */; };
+		B59B8D7A1D3B42B6003A271A /* SWColor+Integers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59B8D791D3B42B6003A271A /* SWColor+Integers.swift */; };
+		B59B8D7B1D3B42BB003A271A /* SWColor+Integers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59B8D791D3B42B6003A271A /* SWColor+Integers.swift */; };
 		B5DE88291D03DD5C0065DB96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DE88281D03DD5C0065DB96 /* AppDelegate.swift */; };
 		B5DE882B1D03DD5C0065DB96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5DE882A1D03DD5C0065DB96 /* Assets.xcassets */; };
 		B5DE88341D03DDAD0065DB96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5DE88331D03DDAD0065DB96 /* Main.storyboard */; };
@@ -31,6 +33,7 @@
 		B5125C111D2930D0001B7449 /* SWGradientNode.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = SWGradientNode.podspec; path = ../SWGradientNode.podspec; sourceTree = "<group>"; };
 		B51E64961D28EDF200EB94CE /* SmoothGradientScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmoothGradientScene.swift; sourceTree = "<group>"; };
 		B51E64981D28EE0900EB94CE /* StepGradientScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepGradientScene.swift; sourceTree = "<group>"; };
+		B59B8D791D3B42B6003A271A /* SWColor+Integers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SWColor+Integers.swift"; sourceTree = "<group>"; };
 		B5DE88261D03DD5C0065DB96 /* SWGradientNodeSwift_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SWGradientNodeSwift_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5DE88281D03DD5C0065DB96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5DE882A1D03DD5C0065DB96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -117,11 +120,12 @@
 			children = (
 				B5DE88471D03F3AB0065DB96 /* AppDelegate.swift */,
 				B5DE88491D03F3AB0065DB96 /* ViewController.swift */,
+				B51E64961D28EDF200EB94CE /* SmoothGradientScene.swift */,
 				B5DE884B1D03F3AB0065DB96 /* Main.storyboard */,
 				B5DE884E1D03F3AB0065DB96 /* Assets.xcassets */,
 				B5DE88501D03F3AB0065DB96 /* LaunchScreen.storyboard */,
 				B5DE88531D03F3AB0065DB96 /* Info.plist */,
-				B51E64961D28EDF200EB94CE /* SmoothGradientScene.swift */,
+				B59B8D791D3B42B6003A271A /* SWColor+Integers.swift */,
 			);
 			path = SWGradientNode_iOS;
 			sourceTree = "<group>";
@@ -229,6 +233,7 @@
 			files = (
 				B5DE88361D03DF960065DB96 /* OSXViewController.swift in Sources */,
 				B51E64991D28EE0900EB94CE /* StepGradientScene.swift in Sources */,
+				B59B8D7B1D3B42BB003A271A /* SWColor+Integers.swift in Sources */,
 				B5DE883C1D03E1390065DB96 /* SWGradientShader.swift in Sources */,
 				B5DE883E1D03E1390065DB96 /* SWGradientNode.swift in Sources */,
 				B5DE88291D03DD5C0065DB96 /* AppDelegate.swift in Sources */,
@@ -241,6 +246,7 @@
 			files = (
 				B51E64971D28EDF200EB94CE /* SmoothGradientScene.swift in Sources */,
 				B5DE884A1D03F3AB0065DB96 /* ViewController.swift in Sources */,
+				B59B8D7A1D3B42B6003A271A /* SWColor+Integers.swift in Sources */,
 				B5DE88571D03F3CE0065DB96 /* SWGradientShader.swift in Sources */,
 				B5DE88581D03F3D00065DB96 /* SWGradientNode.swift in Sources */,
 				B5DE88481D03F3AB0065DB96 /* AppDelegate.swift in Sources */,

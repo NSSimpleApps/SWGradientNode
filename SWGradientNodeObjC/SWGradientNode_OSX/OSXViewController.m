@@ -13,6 +13,8 @@
 
 @interface OSXViewController ()
 
+@property (weak) IBOutlet SKView *skView;
+
 @end
 
 @implementation OSXViewController
@@ -23,14 +25,12 @@
     
     dispatch_async(dispatch_get_main_queue(), ^{
         
-        SKView *skView = (SKView *)self.view;
-        
-        if (!skView.scene) {
+        if (!self.skView.scene) {
             
-            StepGradientScene *stepGradientScene = [StepGradientScene sceneWithSize:skView.bounds.size];
+            StepGradientScene *stepGradientScene = [StepGradientScene sceneWithSize:self.skView.bounds.size];
             stepGradientScene.scaleMode = SKSceneScaleModeAspectFill;//SKSceneScaleModeResizeFill;
             
-            [skView presentScene:stepGradientScene];
+            [self.skView presentScene:stepGradientScene];
         }
     });
 }
@@ -48,6 +48,16 @@
         SWGradientNode *node = (SWGradientNode *)skNode;
         node.center = NSMakePoint(point.x/skView.frame.size.width, point.y/skView.frame.size.height);
     }
+}
+
+- (IBAction)innerRadiusChanged:(NSSlider *)sender {
+    
+    StepGradientScene *scene = (StepGradientScene *)self.skView.scene;
+    
+    CGPoint center = CGPointMake(0.5, 0.5);
+        
+    SWGradientNode *node = (SWGradientNode *)[scene nodeAtPoint:center];
+    node.innerRadius = sender.floatValue;
 }
 
 @end

@@ -8,19 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SWGradientShader : NSObject
 
-@property (copy) NSString *color;
-@property (copy) NSString *location;
-@property (copy) NSString *center;
-@property (copy) NSString *startAngle;
+@property (copy) NSString *uColor;
+@property (copy) NSString *uLocation;
+@property (copy) NSString *uCenter;
+@property (copy) NSString *uStartAngle;
+@property (copy) NSString *uInnerRadius;
 
-- (instancetype)initWithColor:(NSString *)color
-                     location:(NSString *)location
-                       center:(NSString *)center
-                   startAngle:(NSString *)startAngle;
+- (instancetype)initWithColor:(NSString *)uColor
+                     location:(NSString *)uLocation
+                       center:(NSString *)uCenter
+                   startAngle:(NSString *)uStartAngle
+                   innerRadius:(NSString *)uInnerRadius;
 
-- (NSString *)shaderWithCount:(NSInteger)count;
+- (NSString *)shaderWithNumberOfColors:(NSInteger)numberOfColors;
 
 /// returns an empty string
 - (NSString *)initialStep;
@@ -41,4 +45,4 @@
 
 @end
 
-
+NS_ASSUME_NONNULL_END

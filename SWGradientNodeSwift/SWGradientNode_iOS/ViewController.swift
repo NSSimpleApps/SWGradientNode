@@ -11,15 +11,17 @@ import SpriteKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var skView: SKView!
+    
     override func viewDidAppear(animated: Bool) {
         
         super.viewDidAppear(animated)
         
         let gradientScene = SmoothGradientScene()
-        gradientScene.size = self.view.bounds.size
+        gradientScene.size = self.skView.bounds.size
         gradientScene.scaleMode = .AspectFill
         
-        (self.view as! SKView).presentScene(gradientScene)
+        self.skView.presentScene(gradientScene)
     }
     
     @IBAction func handleRotationGesture(sender: UIRotationGestureRecognizer) {
@@ -43,6 +45,17 @@ class ViewController: UIViewController {
             
             let node = scene.nodeAtPoint(location) as! SWGradientNode
             node.center = center
+        }
+    }
+    
+    @IBAction func innerRadiusChanged(sender: UISlider) {
+        
+        if let scene = self.skView.scene as? SmoothGradientScene {
+            
+            let center = CGPoint(x: 0.5, y: 0.5)
+            
+            let node = scene.nodeAtPoint(center) as! SWGradientNode
+            node.innerRadius = sender.value
         }
     }
 }

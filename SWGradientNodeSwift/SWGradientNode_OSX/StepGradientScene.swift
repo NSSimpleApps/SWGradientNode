@@ -14,13 +14,12 @@ class StepGradientScene: SKScene {
         
         super.didMoveToView(view)
         
-        //self.backgroundColor = SKColor.whiteColor()
+        self.backgroundColor = SKColor.whiteColor()
         
         let colors =
-            [SKColor.redColor(),
-             SKColor.greenColor(),
-             SKColor.blueColor(),
-             SKColor.yellowColor()
+            [SKColor(iRed: 247, iGreen: 24, iBlue: 34),
+             SKColor(iRed: 65, iGreen: 185, iBlue: 86),
+             SKColor(iRed: 62, iGreen: 44, iBlue: 222)
         ]
         
         let locations: [Float]? = nil//[0.25, 0.5, 0.75]

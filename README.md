@@ -28,6 +28,7 @@ Usage:
                                  locations:nil // or other locations
                                     bounds:view.bounds
                               gradientType:SWGradientTypeSmooth];
+    node.innerRadius = someValue;
 
     [self addChild:node];
 }
@@ -62,5 +63,10 @@ The first color of the gradient starts at initial angle in radians between 0 and
 0 is to the right along the x axis.
 All colors are located in counter-clockwise order.
 Default is 0.
+
+The inner radius of the gradient
+Node will not draw any gradient inside circle with this radius
+Value between 0 and 0.5
+Default is 0
 
 ![Alt text](https://github.com/NSSimpleApps/SWGradientNode/blob/master/SWGradientNode.gif)

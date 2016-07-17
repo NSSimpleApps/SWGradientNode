@@ -13,6 +13,8 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet SKView *skView;
+
 @end
 
 @implementation ViewController
@@ -20,15 +22,13 @@
 - (void)viewDidAppear:(BOOL)animated {
     
     [super viewDidAppear:animated];
-    
-    SKView *skView = (SKView *)self.view;
         
-    if (!skView.scene) {
-                
-        SmoothGradientScene *smoothGradientScene = [SmoothGradientScene sceneWithSize:skView.bounds.size];
+    if (!self.skView.scene) {
+        
+        SmoothGradientScene *smoothGradientScene = [SmoothGradientScene sceneWithSize:self.skView.bounds.size];
         smoothGradientScene.scaleMode = SKSceneScaleModeAspectFill;//SKSceneScaleModeResizeFill;
         
-        [skView presentScene:smoothGradientScene];
+        [self.skView presentScene:smoothGradientScene];
     }
 }
 
@@ -60,6 +60,16 @@
         SWGradientNode *node = (SWGradientNode *)skNode;
         node.startAngle = sender.rotation;
     }
+}
+
+- (IBAction)sender:(UISlider *)sender {
+    
+    SmoothGradientScene *scene = (SmoothGradientScene *)self.skView.scene;
+    
+    CGPoint center = CGPointMake(0.5, 0.5);
+    
+    SWGradientNode *node = (SWGradientNode *)[scene nodeAtPoint:center];
+    node.innerRadius = sender.value;
 }
 
 @end

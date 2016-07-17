@@ -11,6 +11,8 @@ import SpriteKit
 
 class OSXViewController: NSViewController {
     
+    @IBOutlet weak var skView: SKView!
+    
     override func viewDidAppear() {
         
         super.viewDidAppear()
@@ -18,10 +20,10 @@ class OSXViewController: NSViewController {
         dispatch_async(dispatch_get_main_queue()) { 
             
             let gradientScene = StepGradientScene()
-            gradientScene.size = self.view.bounds.size
-            //gradientScene.scaleMode = .AspectFill
+            gradientScene.size = self.skView.bounds.size
+            gradientScene.scaleMode = .AspectFill
             
-            (self.view as! SKView).presentScene(gradientScene)
+            self.skView.presentScene(gradientScene)
         }
     }
     
@@ -35,6 +37,17 @@ class OSXViewController: NSViewController {
             
             let node = scene.nodeAtPoint(location) as! SWGradientNode
             node.center = center
+        }
+    }
+    
+    @IBAction func innerRadiusChanged(sender: NSSlider) {
+        
+        if let scene = self.skView.scene as? StepGradientScene {
+            
+            let center = CGPoint(x: 0.5, y: 0.5)
+            
+            let node = scene.nodeAtPoint(center) as! SWGradientNode
+            node.innerRadius = sender.floatValue
         }
     }
 }

@@ -25,10 +25,33 @@
         <!--View Controller-->
         <scene sceneID="Sie-hW-X0o">
             <objects>
-                <viewController id="cmD-OH-3f7" customClass="OSXViewController" customModule="SWGradientSceneSwift_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="Ban-CA-IGr" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <viewController id="cmD-OH-3f7" customClass="OSXViewController" customModule="SWGradientNodeSwift_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Ban-CA-IGr">
+                        <rect key="frame" x="0.0" y="0.0" width="518" height="454"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="kjm-Ou-PjZ" customClass="SKView">
+                                <rect key="frame" x="109" y="77" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="HQF-N4-Hfr"/>
+                                    <constraint firstAttribute="height" constant="300" id="TTC-us-mMX"/>
+                                </constraints>
+                            </customView>
+                            <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ppH-H1-6RV">
+                                <rect key="frame" x="18" y="415" width="482" height="21"/>
+                                <sliderCell key="cell" state="on" alignment="left" maxValue="0.5" tickMarkPosition="above" sliderType="linear" id="uCx-oU-dWf"/>
+                                <connections>
+                                    <action selector="innerRadiusChanged:" target="cmD-OH-3f7" id="Ni9-Nu-NhE"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="ppH-H1-6RV" firstAttribute="top" secondItem="Ban-CA-IGr" secondAttribute="top" constant="20" id="Ctm-nS-Tfb"/>
+                            <constraint firstItem="kjm-Ou-PjZ" firstAttribute="centerY" secondItem="Ban-CA-IGr" secondAttribute="centerY" id="KCK-hT-rbt"/>
+                            <constraint firstItem="ppH-H1-6RV" firstAttribute="leading" secondItem="Ban-CA-IGr" secondAttribute="leading" constant="20" id="LAG-2o-ycY"/>
+                            <constraint firstItem="kjm-Ou-PjZ" firstAttribute="centerX" secondItem="Ban-CA-IGr" secondAttribute="centerX" id="M9U-av-DB6"/>
+                            <constraint firstAttribute="trailing" secondItem="ppH-H1-6RV" secondAttribute="trailing" constant="20" id="jJu-oB-nW4"/>
+                        </constraints>
                         <gestureRecognizers>
                             <panGestureRecognizer delaysPrimaryMouseButtonEvents="YES" id="UAc-dh-lMZ">
                                 <connections>
@@ -37,10 +60,13 @@
                             </panGestureRecognizer>
                         </gestureRecognizers>
                     </view>
+                    <connections>
+                        <outlet property="skView" destination="kjm-Ou-PjZ" id="hZ4-CZ-das"/>
+                    </connections>
                 </viewController>
                 <customObject id="fqY-Ho-xWr" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="822" y="369"/>
+            <point key="canvasLocation" x="829" y="410"/>
         </scene>
     </scenes>
 </document>

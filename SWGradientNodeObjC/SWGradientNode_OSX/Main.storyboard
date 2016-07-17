@@ -26,21 +26,47 @@
         <scene sceneID="HED-EM-Hml">
             <objects>
                 <viewController id="AEB-gM-ovF" customClass="OSXViewController" sceneMemberID="viewController">
-                    <view key="view" id="zld-Fa-l3q" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                    <view key="view" id="zld-Fa-l3q">
+                        <rect key="frame" x="0.0" y="0.0" width="557" height="430"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <gestureRecognizers>
-                            <panGestureRecognizer delaysPrimaryMouseButtonEvents="YES" id="C1z-TK-yOR">
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="XVR-pz-6O9" customClass="SKView">
+                                <rect key="frame" x="129" y="65" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="1QQ-FT-kRP"/>
+                                    <constraint firstAttribute="height" constant="300" id="Zod-re-zDS"/>
+                                </constraints>
+                                <gestureRecognizers>
+                                    <panGestureRecognizer delaysPrimaryMouseButtonEvents="YES" id="dc9-Jr-wqb">
+                                        <connections>
+                                            <action selector="handlePanGesture:" target="AEB-gM-ovF" id="PPE-sE-HTP"/>
+                                        </connections>
+                                    </panGestureRecognizer>
+                                </gestureRecognizers>
+                            </customView>
+                            <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pam-ja-ZVH">
+                                <rect key="frame" x="18" y="391" width="521" height="21"/>
+                                <sliderCell key="cell" state="on" alignment="left" maxValue="0.5" tickMarkPosition="above" sliderType="linear" id="jsp-BD-VNd"/>
                                 <connections>
-                                    <action selector="handlePanGesture:" target="AEB-gM-ovF" id="vao-Le-COs"/>
+                                    <action selector="innerRadiusChanged:" target="AEB-gM-ovF" id="SeP-Tr-Ups"/>
                                 </connections>
-                            </panGestureRecognizer>
-                        </gestureRecognizers>
+                            </slider>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="XVR-pz-6O9" firstAttribute="centerX" secondItem="zld-Fa-l3q" secondAttribute="centerX" id="JWM-P8-3aa"/>
+                            <constraint firstItem="Pam-ja-ZVH" firstAttribute="leading" secondItem="zld-Fa-l3q" secondAttribute="leading" constant="20" id="JcB-R1-QI7"/>
+                            <constraint firstItem="XVR-pz-6O9" firstAttribute="centerY" secondItem="zld-Fa-l3q" secondAttribute="centerY" id="MAj-mQ-0uK"/>
+                            <constraint firstItem="Pam-ja-ZVH" firstAttribute="top" secondItem="zld-Fa-l3q" secondAttribute="top" constant="20" id="Vrb-1G-y0v"/>
+                            <constraint firstAttribute="trailing" secondItem="Pam-ja-ZVH" secondAttribute="trailing" constant="20" id="xT2-Ia-3jP"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="skView" destination="XVR-pz-6O9" id="Y8N-8g-Y2b"/>
+                    </connections>
                 </viewController>
                 <customObject id="JKp-qk-atc" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1122" y="461"/>
+            <point key="canvasLocation" x="1160.5" y="541"/>
         </scene>
     </scenes>
 </document>

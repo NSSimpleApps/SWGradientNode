@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B51E64921D28DC5500EB94CE /* SmoothGradientScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B51E64911D28DC5500EB94CE /* SmoothGradientScene.m */; };
 		B51E64951D28DC7200EB94CE /* StepGradientScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B51E64941D28DC7200EB94CE /* StepGradientScene.m */; };
+		B5AF0D181D3B75490004C3C8 /* SKColor+Integers.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AF0D171D3B75490004C3C8 /* SKColor+Integers.m */; };
+		B5AF0D191D3B754F0004C3C8 /* SKColor+Integers.m in Sources */ = {isa = PBXBuildFile; fileRef = B5AF0D171D3B75490004C3C8 /* SKColor+Integers.m */; };
 		B5B933341D0DCCBA00364484 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5B933331D0DCCBA00364484 /* Main.storyboard */; };
 		B5B933371D0DCD0C00364484 /* OSXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B933361D0DCD0C00364484 /* OSXViewController.m */; };
 		B5DE886C1D048E7F0065DB96 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B5DE886B1D048E7F0065DB96 /* main.m */; };
@@ -35,6 +37,8 @@
 		B51E64911D28DC5500EB94CE /* SmoothGradientScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmoothGradientScene.m; sourceTree = "<group>"; };
 		B51E64931D28DC7200EB94CE /* StepGradientScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepGradientScene.h; sourceTree = "<group>"; };
 		B51E64941D28DC7200EB94CE /* StepGradientScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StepGradientScene.m; sourceTree = "<group>"; };
+		B5AF0D161D3B75490004C3C8 /* SKColor+Integers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKColor+Integers.h"; sourceTree = "<group>"; };
+		B5AF0D171D3B75490004C3C8 /* SKColor+Integers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKColor+Integers.m"; sourceTree = "<group>"; };
 		B5B933331D0DCCBA00364484 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B5B933351D0DCD0C00364484 /* OSXViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSXViewController.h; sourceTree = "<group>"; };
 		B5B933361D0DCD0C00364484 /* OSXViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSXViewController.m; sourceTree = "<group>"; };
@@ -108,13 +112,15 @@
 				B5DE886E1D048E7F0065DB96 /* AppDelegate.m */,
 				B5DE88701D048E7F0065DB96 /* ViewController.h */,
 				B5DE88711D048E7F0065DB96 /* ViewController.m */,
+				B51E64901D28DC5500EB94CE /* SmoothGradientScene.h */,
+				B51E64911D28DC5500EB94CE /* SmoothGradientScene.m */,
 				B5DE88731D048E7F0065DB96 /* Main.storyboard */,
 				B5DE88761D048E7F0065DB96 /* Assets.xcassets */,
 				B5DE88781D048E7F0065DB96 /* LaunchScreen.storyboard */,
 				B5DE887B1D048E7F0065DB96 /* Info.plist */,
 				B5DE886A1D048E7F0065DB96 /* Supporting Files */,
-				B51E64901D28DC5500EB94CE /* SmoothGradientScene.h */,
-				B51E64911D28DC5500EB94CE /* SmoothGradientScene.m */,
+				B5AF0D161D3B75490004C3C8 /* SKColor+Integers.h */,
+				B5AF0D171D3B75490004C3C8 /* SKColor+Integers.m */,
 			);
 			path = SWGradientNode_iOS;
 			sourceTree = "<group>";
@@ -268,6 +274,7 @@
 				B51E64921D28DC5500EB94CE /* SmoothGradientScene.m in Sources */,
 				B5DE88991D048F970065DB96 /* SWGradientShader.m in Sources */,
 				B5DE886F1D048E7F0065DB96 /* AppDelegate.m in Sources */,
+				B5AF0D181D3B75490004C3C8 /* SKColor+Integers.m in Sources */,
 				B5DE889D1D048FC40065DB96 /* SWGradientNode.m in Sources */,
 				B5DE886C1D048E7F0065DB96 /* main.m in Sources */,
 			);
@@ -281,6 +288,7 @@
 				B5DE888C1D048F4C0065DB96 /* main.m in Sources */,
 				B5DE88891D048F4C0065DB96 /* AppDelegate.m in Sources */,
 				B5DE889E1D048FC40065DB96 /* SWGradientNode.m in Sources */,
+				B5AF0D191D3B754F0004C3C8 /* SKColor+Integers.m in Sources */,
 				B51E64951D28DC7200EB94CE /* StepGradientScene.m in Sources */,
 				B5DE889A1D048F970065DB96 /* SWGradientShader.m in Sources */,
 			);

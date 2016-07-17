@@ -18,54 +18,57 @@ private let SWPostfix = "gl_FragColor = color;}"
 
 internal class SWGradientShader: NSObject {
     
-    private var color = ""
-    private var location = ""
-    private var center = ""
-    private var startAngle = ""
+    internal var uColor = ""
+    internal var uLocation = ""
+    internal var uCenter = ""
+    internal var uStartAngle = ""
+    internal var uInnerRadius = ""
     
-    init(color: String, location: String, center: String, startAngle: String) {
+    internal init(uColor: String, uLocation: String, uCenter: String, uStartAngle: String, uInnerRadius: String) {
         
         super.init()
         
-        self.color = color
-        self.location = location
-        self.center = center
-        self.startAngle = startAngle
+        self.uColor = uColor
+        self.uLocation = uLocation
+        self.uCenter = uCenter
+        self.uStartAngle = uStartAngle
+        self.uInnerRadius = uInnerRadius
     }
     
-    internal func shaderWithCount(count: Int) -> String {
+    internal func shaderWithNumberOfColors(numberOfColors: Int) -> String {
         
-        let coordDefinition = String(format: "vec2 coord = v_tex_coord.xy - %@;", self.center)
+        let coordDefinition =
+        "vec2 coord = v_tex_coord.xy - \(self.uCenter);"
         
-        let angleDefinition = String(format: "float angle = atan(coord.y, coord.x); if(coord.y < 0.0) {angle = 2.0 * M_PI + angle;} angle = mod(angle / (2.0 * M_PI) + %@, 1.0);", self.startAngle)
+        let angleDefinition = "if(length(coord) < \(self.uInnerRadius)){discard;}\nfloat angle = atan(coord.y, coord.x); if(coord.y < 0.0) {angle = 2.0 * M_PI + angle;} angle = mod(angle / (2.0 * M_PI) + \(self.uStartAngle), 1.0);"
         
-        let colorDefinition = String(format: "vec4 color = mix(%@0, %@1, %@);", self.color, self.color, self.initialStep())
+        let colorDefinition = "vec4 color = mix(\(self.uColor)0, \(self.uColor)1, \(self.initialStep()));"
         
         var steps = ""
         
-        for index in 2.stride(through: count, by: 1) {
+        for index in 2.stride(through: numberOfColors, by: 1) {
             
-            steps += String(format: "color = mix(color, %@\(index), %@);\n", self.color, self.stepForIndex(index))
+            steps += "color = mix(color, \(self.uColor)\(index), \(self.stepForIndex(index)));\n"
         }
         
-        let lastStep = String(format: "color = mix(color, %@0, %@);", self.color, self.lastStepForIndex(count))
+        let lastStep = "color = mix(color, \(self.uColor)0, \(self.lastStepForIndex(numberOfColors)));"
         
-        return String(format: "%@\n%@\n%@\n%@\n%@%@\n%@", SWPrefix, coordDefinition, angleDefinition, colorDefinition, steps, lastStep, SWPostfix)
+        return "\(SWPrefix)\n\(coordDefinition)\n\(angleDefinition)\n\(colorDefinition)\n\(steps)\(lastStep)\n\(SWPostfix)"
     }
     
     internal func initialStep() -> String {
         
-        fatalError(#function + " must be overriden")
+        return ""
     }
     
     internal func stepForIndex(index: Int) -> String {
         
-        fatalError(#function + " must be overriden")
+        return ""
     }
     
     internal func lastStepForIndex(index: Int) -> String {
         
-        fatalError(#function + " must be overriden")
+        return ""
     }
 }
 
@@ -73,17 +76,17 @@ internal class SWSmoothGradientShader: SWGradientShader {
     
     override func initialStep() -> String {
         
-        return String(format: "smoothstep(0.0, %@1, angle)", self.location)
+        return "smoothstep(0.0, \(self.uLocation)1, angle)"
     }
     
     override func stepForIndex(index: Int) -> String {
         
-        return String(format: "smoothstep(%@\(index - 1), %@\(index), angle)", self.location, self.location)
+        return "smoothstep(\(self.uLocation)\(index - 1), \(self.uLocation)\(index), angle)"
     }
     
     override func lastStepForIndex(index: Int) -> String {
         
-        return String(format: "smoothstep(%@\(index), 1.0, angle)", self.location)
+        return "smoothstep(\(self.uLocation)\(index), 1.0, angle)"
     }
 }
 
@@ -96,7 +99,7 @@ internal class SWStepGradientShader: SWGradientShader {
     
     override func stepForIndex(index: Int) -> String {
         
-        return String(format: "step(%@\(index), angle)", self.location)
+        return "step(\(self.uLocation)\(index), angle)"
     }
     
     override func lastStepForIndex(index: Int) -> String {

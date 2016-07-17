@@ -8,6 +8,7 @@
 
 #import "SmoothGradientScene.h"
 #import "SWGradientNode.h"
+#import "SKColor+Integers.h"
 
 @implementation SmoothGradientScene
 
@@ -15,12 +16,13 @@
     
     [super didMoveToView:view];
     
-    self.backgroundColor = [SKColor clearColor];
+    self.backgroundColor = [SKColor whiteColor];
     
-    NSArray<SKColor *> *colors = @[[SKColor redColor],
-                                   [SKColor greenColor],
-                                   [SKColor blueColor],
-                                   [SKColor yellowColor]];
+    NSArray<SKColor *> *colors =
+    @[[SKColor colorWithiRed:247 iGreen:24 iBlue:34],
+      [SKColor colorWithiRed: 65 iGreen: 185 iBlue: 86],
+      [SKColor colorWithiRed: 62 iGreen: 44 iBlue: 222]
+      ];
     
     SWGradientNode *node = [[SWGradientNode alloc] initWithColors:colors
                                                         locations:nil

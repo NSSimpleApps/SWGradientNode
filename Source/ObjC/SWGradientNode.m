@@ -34,6 +34,8 @@ static NSString *const SWUniformLocation = @"uniformLocation";
 
 @property (strong) SKUniform *uniformStartAngle;
 
+@property (strong) SKUniform *uniformInnerRadius;
+
 @end
 
 @implementation SWGradientNode
@@ -52,6 +54,8 @@ static NSString *const SWUniformLocation = @"uniformLocation";
         self.uniformCenter = [SKUniform uniformWithName:@"uniformCenter"
                                            floatVector2:GLKVector2Make(0.5, 0.5)];
         self.uniformStartAngle = [SKUniform uniformWithName:@"uniformStartAngle" float: 0.0];
+        self.uniformInnerRadius = [SKUniform uniformWithName:@"uniformInnerRadius" float: 0.0];
+        
         self.position = SWPointMake(SWRectGetMidX(bounds), SWRectGetMidY(bounds));
         
         if (colors.count == 1) {
@@ -60,7 +64,7 @@ static NSString *const SWUniformLocation = @"uniformLocation";
             
         } else {
             
-            NSMutableArray<SKUniform *> *uniforms = [NSMutableArray arrayWithObjects:self.uniformCenter, self.uniformStartAngle, nil];
+            NSMutableArray<SKUniform *> *uniforms = [NSMutableArray arrayWithObjects:self.uniformCenter, self.uniformStartAngle, self.uniformInnerRadius, nil];
             
             [colors enumerateObjectsUsingBlock:^(SKColor * _Nonnull color, NSUInteger idx, BOOL * _Nonnull stop) {
                 
@@ -70,7 +74,7 @@ static NSString *const SWUniformLocation = @"uniformLocation";
                 
                 GLKVector4 vector4 = GLKVector4Make(red, green, blue, alpha);
                 
-                SKUniform *colorUniform = [SKUniform uniformWithName:[NSString stringWithFormat:@"%@%lu", SWUniformColor, (unsigned long)idx]
+                SKUniform *colorUniform = [SKUniform uniformWithName:[NSString stringWithFormat:@"%@%@", SWUniformColor, @(idx)]
                               floatVector4:vector4];
                 
                 [uniforms addObject:colorUniform];
@@ -80,7 +84,7 @@ static NSString *const SWUniformLocation = @"uniformLocation";
                 
                 [locations enumerateObjectsUsingBlock:^(NSNumber * _Nonnull location, NSUInteger idx, BOOL * _Nonnull stop) {
                     
-                    NSString *name = [NSString stringWithFormat:@"%@%lu", SWUniformLocation, (unsigned long)(idx + 1)];
+                    NSString *name = [NSString stringWithFormat:@"%@%@", SWUniformLocation, @(idx + 1)];
                     
                     SKUniform *locationUniform = [SKUniform uniformWithName:name
                                                                       float:location.floatValue];
@@ -91,7 +95,7 @@ static NSString *const SWUniformLocation = @"uniformLocation";
                 
                 for (NSUInteger elem = 1; elem < colors.count; elem++) {
                     
-                    NSString *name = [NSString stringWithFormat:@"%@%lu", SWUniformLocation, (unsigned long)elem];
+                    NSString *name = [NSString stringWithFormat:@"%@%@", SWUniformLocation, @(elem)];
                     
                     CGFloat location = (float)elem/colors.count;
                     
@@ -109,7 +113,8 @@ static NSString *const SWUniformLocation = @"uniformLocation";
                 [[SWSmoothGradientShader alloc ] initWithColor:SWUniformColor
                                                       location:SWUniformLocation
                                                         center:self.uniformCenter.name
-                                                    startAngle:self.uniformStartAngle.name];
+                                                    startAngle:self.uniformStartAngle.name
+                 innerRadius:self.uniformInnerRadius.name];
                 
             } else if (gradientType == SWGradientTypeStep) {
                 
@@ -117,10 +122,11 @@ static NSString *const SWUniformLocation = @"uniformLocation";
                 [[SWStepGradientShader alloc ] initWithColor:SWUniformColor
                                                     location:SWUniformLocation
                                                       center:self.uniformCenter.name
-                                                  startAngle:self.uniformStartAngle.name];
+                                                  startAngle:self.uniformStartAngle.name
+                 innerRadius:self.uniformInnerRadius.name];
             }
             
-            self.shader = [[SKShader alloc] initWithSource:[gradientShader shaderWithCount:colors.count - 1]
+            self.shader = [[SKShader alloc] initWithSource:[gradientShader shaderWithNumberOfColors:colors.count - 1]
                                                   uniforms:uniforms];
         }
     }
@@ -170,6 +176,17 @@ static NSString *const SWUniformLocation = @"uniformLocation";
 - (void)setStartAngle:(CGFloat)startAngle {
     
     self.uniformStartAngle.floatValue = fmodf(startAngle, 2 * M_PI) / (2 * M_PI);
+}
+
+
+- (CGFloat)innerRadius {
+    
+    return self.uniformInnerRadius.floatValue;
+}
+
+- (void)setInnerRadius:(CGFloat)innerRadius {
+    
+    self.uniformInnerRadius.floatValue = MIN(MAX(innerRadius, 0.0), 0.5);
 }
 
 @end
