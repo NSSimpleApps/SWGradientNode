@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = "SWGradientNode"
-    s.version      = "0.2"
+    s.version      = "0.3"
     s.summary      = "This is a sweep color gradient."
     s.description  = "SWGradientNode is a subclass of SKSpriteNode that draws a sweep gradient around a center point with initial angle. See the README"
     s.homepage     = "https://github.com/NSSimpleApps/SWGradientNode"

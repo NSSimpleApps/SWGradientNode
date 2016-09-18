@@ -10,11 +10,11 @@ import SpriteKit
 
 class StepGradientScene: SKScene {
     
-    override func didMoveToView(view: SKView) {
+    override func didMove(to view: SKView) {
         
-        super.didMoveToView(view)
+        super.didMove(to: view)
         
-        self.backgroundColor = SKColor.whiteColor()
+        self.backgroundColor = SKColor.white
         
         let colors =
             [SKColor(iRed: 247, iGreen: 24, iBlue: 34),
@@ -24,7 +24,7 @@ class StepGradientScene: SKScene {
         
         let locations: [Float]? = nil//[0.25, 0.5, 0.75]
         
-        let gradientNode = SWGradientNode(colors: colors, locations: locations, bounds: view.bounds, gradientType: .Step)
+        let gradientNode = SWGradientNode(colors: colors, locations: locations, bounds: view.bounds, gradientType: .step)
         self.addChild(gradientNode)
     }
 }

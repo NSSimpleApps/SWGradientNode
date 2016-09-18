@@ -17,36 +17,36 @@ class OSXViewController: NSViewController {
         
         super.viewDidAppear()
         
-        dispatch_async(dispatch_get_main_queue()) { 
+        DispatchQueue.main.async { 
             
             let gradientScene = StepGradientScene()
             gradientScene.size = self.skView.bounds.size
-            gradientScene.scaleMode = .AspectFill
+            gradientScene.scaleMode = .aspectFill
             
             self.skView.presentScene(gradientScene)
         }
     }
     
-    @IBAction func handlePanGesture(sender: NSPanGestureRecognizer) {
+    @IBAction func handlePanGesture(_ sender: NSPanGestureRecognizer) {
         
         if let skView = sender.view as? SKView, let scene = skView.scene as? StepGradientScene {
             
-            let location = sender.locationInView(skView)
+            let location = sender.location(in: skView)
             
             let center = NSPoint(x: location.x/skView.bounds.width, y: location.y/skView.bounds.height)
             
-            let node = scene.nodeAtPoint(location) as! SWGradientNode
+            let node = scene.atPoint(location) as! SWGradientNode
             node.center = center
         }
     }
     
-    @IBAction func innerRadiusChanged(sender: NSSlider) {
+    @IBAction func innerRadiusChanged(_ sender: NSSlider) {
         
         if let scene = self.skView.scene as? StepGradientScene {
             
             let center = CGPoint(x: 0.5, y: 0.5)
             
-            let node = scene.nodeAtPoint(center) as! SWGradientNode
+            let node = scene.atPoint(center) as! SWGradientNode
             node.innerRadius = sender.floatValue
         }
     }

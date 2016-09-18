@@ -13,48 +13,48 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var skView: SKView!
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
         
         let gradientScene = SmoothGradientScene()
         gradientScene.size = self.skView.bounds.size
-        gradientScene.scaleMode = .AspectFill
+        gradientScene.scaleMode = .aspectFill
         
         self.skView.presentScene(gradientScene)
     }
     
-    @IBAction func handleRotationGesture(sender: UIRotationGestureRecognizer) {
+    @IBAction func handleRotationGesture(_ sender: UIRotationGestureRecognizer) {
         
         if let skView = sender.view as? SKView, let scene = skView.scene as? SmoothGradientScene {
             
-            let location = sender.locationInView(skView)
+            let location = sender.location(in: skView)
             
-            let node = scene.nodeAtPoint(location) as! SWGradientNode
+            let node = scene.atPoint(location) as! SWGradientNode
             node.startAngle = Float(sender.rotation)
         }
     }
     
-    @IBAction func handlePanGesture(sender: UIPanGestureRecognizer) {
+    @IBAction func handlePanGesture(_ sender: UIPanGestureRecognizer) {
         
         if let skView = sender.view as? SKView, let scene = skView.scene as? SmoothGradientScene {
             
-            let location = sender.locationInView(skView)
+            let location = sender.location(in: skView)
             
             let center = CGPoint(x: location.x/skView.bounds.width, y: location.y/skView.bounds.height)
             
-            let node = scene.nodeAtPoint(location) as! SWGradientNode
+            let node = scene.atPoint(location) as! SWGradientNode
             node.center = center
         }
     }
     
-    @IBAction func innerRadiusChanged(sender: UISlider) {
+    @IBAction func innerRadiusChanged(_ sender: UISlider) {
         
         if let scene = self.skView.scene as? SmoothGradientScene {
             
             let center = CGPoint(x: 0.5, y: 0.5)
             
-            let node = scene.nodeAtPoint(center) as! SWGradientNode
+            let node = scene.atPoint(center) as! SWGradientNode
             node.innerRadius = sender.value
         }
     }

@@ -35,7 +35,7 @@ internal class SWGradientShader: NSObject {
         self.uInnerRadius = uInnerRadius
     }
     
-    internal func shaderWithNumberOfColors(numberOfColors: Int) -> String {
+    internal func shaderWithNumberOfColors(_ numberOfColors: Int) -> String {
         
         let coordDefinition =
         "vec2 coord = v_tex_coord.xy - \(self.uCenter);"
@@ -46,7 +46,7 @@ internal class SWGradientShader: NSObject {
         
         var steps = ""
         
-        for index in 2.stride(through: numberOfColors, by: 1) {
+        for index in stride(from: 2, through: numberOfColors, by: 1) {
             
             steps += "color = mix(color, \(self.uColor)\(index), \(self.stepForIndex(index)));\n"
         }
@@ -61,12 +61,12 @@ internal class SWGradientShader: NSObject {
         return ""
     }
     
-    internal func stepForIndex(index: Int) -> String {
+    internal func stepForIndex(_ index: Int) -> String {
         
         return ""
     }
     
-    internal func lastStepForIndex(index: Int) -> String {
+    internal func lastStepForIndex(_ index: Int) -> String {
         
         return ""
     }
@@ -79,12 +79,12 @@ internal class SWSmoothGradientShader: SWGradientShader {
         return "smoothstep(0.0, \(self.uLocation)1, angle)"
     }
     
-    override func stepForIndex(index: Int) -> String {
+    override func stepForIndex(_ index: Int) -> String {
         
         return "smoothstep(\(self.uLocation)\(index - 1), \(self.uLocation)\(index), angle)"
     }
     
-    override func lastStepForIndex(index: Int) -> String {
+    override func lastStepForIndex(_ index: Int) -> String {
         
         return "smoothstep(\(self.uLocation)\(index), 1.0, angle)"
     }
@@ -97,12 +97,12 @@ internal class SWStepGradientShader: SWGradientShader {
         return self.stepForIndex(1)
     }
     
-    override func stepForIndex(index: Int) -> String {
+    override func stepForIndex(_ index: Int) -> String {
         
         return "step(\(self.uLocation)\(index), angle)"
     }
     
-    override func lastStepForIndex(index: Int) -> String {
+    override func lastStepForIndex(_ index: Int) -> String {
         
         return "step(1.0, angle)"
     }

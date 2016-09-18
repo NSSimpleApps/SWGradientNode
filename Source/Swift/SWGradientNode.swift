@@ -23,24 +23,24 @@ private let SWUniformLocation = "uniformLocation"
 /// smooth and step types of gradient
 public enum SWGradientType {
     
-    case Smooth
-    case Step
+    case smooth
+    case step
 }
 
 /// smooth and step gradient node
-public class SWGradientNode: SKSpriteNode {
+open class SWGradientNode: SKSpriteNode {
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private let uniformCenter = SKUniform(name: "uniformCenter", floatVector2: GLKVector2Make(0.5, 0.5))
+    fileprivate let uniformCenter = SKUniform(name: "uniformCenter", float: GLKVector2Make(0.5, 0.5))
     
     /// The center of sweeping gradient between (0.0, 0.0) and (1.0, 1.0).
     /// (0.0, 0.0) is a bottom left corner (OSX) or top left corner (iOS).
     /// (1.0, 1.0) is a top right (OSX) or bottom left corner (iOS).
     /// Default is (0.5, 0.5)
-    public var center: SWPoint {
+    open var center: SWPoint {
         
         get {
             
@@ -71,13 +71,13 @@ public class SWGradientNode: SKSpriteNode {
         }
     }
     
-    private let uniformStartAngle = SKUniform(name: "uniformStartAngle", float: 0.0)
+    fileprivate let uniformStartAngle = SKUniform(name: "uniformStartAngle", float: 0.0)
     
     /// The first color of the gradient starts at this angle in radians between 0 and 2*PI
     /// 0 is to the right along the x axis.
     /// All colors are located in counter-clockwise order.
     /// Default is 0
-    public var startAngle: Float {
+    open var startAngle: Float {
         
         get {
             
@@ -91,13 +91,13 @@ public class SWGradientNode: SKSpriteNode {
     }
     
     
-    private let uniformInnerRadius = SKUniform(name: "uniformInnerRadius", float: 0.0)
+    fileprivate let uniformInnerRadius = SKUniform(name: "uniformInnerRadius", float: 0.0)
     
     /// The inner radius of the gradient
     /// Node will not draw any gradient inside circle with this radius
     /// Value between 0 and 0.5
     /// Default is 0
-    public var innerRadius: Float {
+    open var innerRadius: Float {
         
         get {
             
@@ -112,7 +112,7 @@ public class SWGradientNode: SKSpriteNode {
     
     public init(colors: [SKColor], locations: [Float]?, bounds: SWRect, gradientType: SWGradientType) {
         
-        super.init(texture: nil, color: SKColor.clearColor(), size: bounds.size)
+        super.init(texture: nil, color: SKColor.clear, size: bounds.size)
         
         self.position = SWPoint(x: bounds.midX, y: bounds.midY)
         
@@ -124,20 +124,20 @@ public class SWGradientNode: SKSpriteNode {
             
             var uniforms: [SKUniform] = [self.uniformCenter, self.uniformStartAngle, self.uniformInnerRadius]
             
-            for (index, color) in colors.enumerate() {
+            for (index, color) in colors.enumerated() {
                 
                 var red = CGFloat(0.0), green = CGFloat(0.0), blue = CGFloat(0.0), alpha = CGFloat(0.0)
                 
                 color.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
             
                 let vector4 = GLKVector4Make(Float(red), Float(green), Float(blue), Float(alpha))
-                let colorUniform = SKUniform(name: "\(SWUniformColor)\(index)", floatVector4: vector4)
+                let colorUniform = SKUniform(name: "\(SWUniformColor)\(index)", float: vector4)
                 uniforms.append(colorUniform)
             }
             
-            if let locations = locations where locations.count - 1 == colors.count {
+            if let locations = locations , locations.count - 1 == colors.count {
                 
-                for (index, location) in locations.enumerate() {
+                for (index, location) in locations.enumerated() {
                     
                     let name = "\(SWUniformLocation)\(index + 1)"
                     
@@ -160,14 +160,14 @@ public class SWGradientNode: SKSpriteNode {
             
             switch gradientType {
             
-            case .Smooth:
+            case .smooth:
                 gradientShader =
                 SWSmoothGradientShader(uColor: SWUniformColor,
                                        uLocation: SWUniformLocation,
                                        uCenter: self.uniformCenter.name,
                                        uStartAngle: self.uniformStartAngle.name, uInnerRadius: self.uniformInnerRadius.name)
                 
-            case .Step:
+            case .step:
                 gradientShader =
                     SWStepGradientShader(uColor: SWUniformColor,
                                          uLocation: SWUniformLocation,

@@ -10,11 +10,11 @@ import SpriteKit
 
 class SmoothGradientScene: SKScene {
     
-    override func didMoveToView(view: SKView) {
+    override func didMove(to view: SKView) {
         
-        super.didMoveToView(view)
+        super.didMove(to: view)
         
-        self.backgroundColor = SKColor.whiteColor()
+        self.backgroundColor = SKColor.white
         
         let colors =
             [SKColor(iRed: 247, iGreen: 24, iBlue: 34),
@@ -24,7 +24,7 @@ class SmoothGradientScene: SKScene {
         
         let locations: [Float]? = nil//[0.15, 0.5, 0.9]
         
-        let gradientNode = SWGradientNode(colors: colors, locations: locations, bounds: view.bounds, gradientType: .Smooth)
+        let gradientNode = SWGradientNode(colors: colors, locations: locations, bounds: view.bounds, gradientType: .smooth)
         self.addChild(gradientNode)
     }
 }

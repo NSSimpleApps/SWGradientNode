@@ -8,11 +8,22 @@
 
 import SpriteKit
 
+private extension UInt8 {
+    
+    var percent: CGFloat {
+        
+        return CGFloat(self)/CGFloat(UInt8.max)
+    }
+}
+
 
 extension SKColor {
     
-    convenience init(iRed: Int, iGreen: Int, iBlue: Int) {
+    convenience init(iRed: UInt8, iGreen: UInt8, iBlue: UInt8) {
         
-        self.init(red: CGFloat(iRed)/255, green: CGFloat(iGreen)/255, blue: CGFloat(iBlue)/255, alpha: 1)
+        self.init(red: iRed.percent,
+                  green: iGreen.percent,
+                  blue: iBlue.percent,
+                  alpha: 1)
     }
 }
