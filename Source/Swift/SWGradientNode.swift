@@ -86,7 +86,7 @@ open class SWGradientNode: SKSpriteNode {
         
         set {
             
-            self.uniformStartAngle.floatValue = fmodf(newValue, Float(2 * M_PI)) / Float(2 * M_PI)
+            self.uniformStartAngle.floatValue = fmodf(newValue, 2 * Float.pi) / (2 * Float.pi)
         }
     }
     

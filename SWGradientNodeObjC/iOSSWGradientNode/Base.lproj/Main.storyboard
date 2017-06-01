@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="p5U-3o-IFb">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sweep gradient node-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JWN-iR-GFB" customClass="SKView">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="D2Y-zh-ldL"/>
+                                    <constraint firstAttribute="width" constant="300" id="Z9x-7c-zio"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="g66-ms-YYd" appends="YES" id="ARb-hk-qkI"/>
+                                    <outletCollection property="gestureRecognizers" destination="6xe-Me-dqE" appends="YES" id="ppS-fb-26D"/>
+                                </connections>
+                            </view>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Tpy-VE-v8g">
+                                <connections>
+                                    <action selector="sender:" destination="BYZ-38-t0r" eventType="valueChanged" id="ICZ-0P-iAd"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="Tpy-VE-v8g" secondAttribute="leading" id="9Y5-Dw-Mkf"/>
+                            <constraint firstItem="JWN-iR-GFB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MMl-fM-RvY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Tpy-VE-v8g" secondAttribute="trailing" id="Uq7-vC-ybi"/>
+                            <constraint firstItem="Tpy-VE-v8g" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="Yca-Bs-Jrs"/>
+                            <constraint firstItem="JWN-iR-GFB" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fK9-NH-r3y"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" title="Sweep gradient node" id="UtK-OD-Nfh"/>
+                    <connections>
+                        <outlet property="skView" destination="JWN-iR-GFB" id="erD-s1-P2S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <rotationGestureRecognizer id="g66-ms-YYd">
+                    <connections>
+                        <action selector="handleRotationGesture:" destination="BYZ-38-t0r" id="Q6Z-Gv-exf"/>
+                    </connections>
+                </rotationGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="6xe-Me-dqE">
+                    <connections>
+                        <action selector="handlePanGesture:" destination="BYZ-38-t0r" id="AxD-zL-qQ2"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1234" y="266"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2bu-zI-WoO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="p5U-3o-IFb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="hAI-R1-553">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="O3T-aW-jWH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1jJ-6a-cVj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="556" y="266"/>
+        </scene>
+    </scenes>
+</document>
