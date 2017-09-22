@@ -29,10 +29,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B5125C0A1D291CA9001B7449 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
-		B5125C0B1D291CA9001B7449 /* SWGradientNode.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = SWGradientNode.podspec; path = ../SWGradientNode.podspec; sourceTree = "<group>"; };
-		B5125C0C1D291CA9001B7449 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		B5125C0D1D291CA9001B7449 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B51E64901D28DC5500EB94CE /* SmoothGradientScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmoothGradientScene.h; sourceTree = "<group>"; };
 		B51E64911D28DC5500EB94CE /* SmoothGradientScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmoothGradientScene.m; sourceTree = "<group>"; };
 		B51E64931D28DC7200EB94CE /* StepGradientScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepGradientScene.h; sourceTree = "<group>"; };
@@ -85,10 +81,6 @@
 		B5DE885E1D048E7F0065DB96 = {
 			isa = PBXGroup;
 			children = (
-				B5125C0A1D291CA9001B7449 /* CHANGELOG.md */,
-				B5125C0B1D291CA9001B7449 /* SWGradientNode.podspec */,
-				B5125C0C1D291CA9001B7449 /* LICENSE */,
-				B5125C0D1D291CA9001B7449 /* README.md */,
 				B5DE88961D048F8A0065DB96 /* ObjC */,
 				B5DE88691D048E7F0065DB96 /* iOSSWGradientNode */,
 				B5DE88861D048F4C0065DB96 /* macOSSWGradientNode */,
@@ -213,7 +205,7 @@
 		B5DE885F1D048E7F0065DB96 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = NSSimpleApps;
 				TargetAttributes = {
 					B5DE88661D048E7F0065DB96 = {
@@ -325,14 +317,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -373,14 +371,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
