@@ -6,6 +6,8 @@
 
 `>= 0.6` is for `Swift 4.2`.
 
+`>= 0.7` is for `Swift 5.0`.
+
 `SWGradientNode` is a subclass of `SKSpriteNode` that draws a sweep gradient around a center point with initial angle.
 
 Place into Podfile
